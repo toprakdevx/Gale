@@ -29,7 +29,8 @@ index bf977a462711da04e281aaff77de40070a8a83ee..91a00c0b9d751deac746ce096781fa07
  
      public void move(MoverType movementType, Vec3 movement) {
 +        // Gale start - VMP - skip entity move if movement is zero
-+        if (!this.boundingBoxChanged && movement.equals(Vec3.ZERO)) {
++        if (this.boundingBoxChanged && movement.equals(Vec3.ZERO)) {
++            this.boundingBoxChanged = false;
 +            return;
 +        }
 +        // Gale end - VMP - skip entity move if movement is zero
